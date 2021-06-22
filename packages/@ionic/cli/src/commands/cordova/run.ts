@@ -306,7 +306,7 @@ Just like with ${input('ionic cordova build')}, you can pass additional options 
       const forwardedPorts = details ? runner.getUsedPorts(runnerOpts, details) : [];
 
       await this.runNativeRun(createNativeRunArgs({ packagePath, platform, forwardedPorts }, options));
-    } else {
+    } else if (!options['no-compile']){
       await this.runCordova(filterArgumentsForCordova(metadata, options), buildOpts);
       await sleepForever();
     }
